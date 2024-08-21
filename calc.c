@@ -2,16 +2,23 @@
 
 int main() {
 	float a, b;
-	char o;
-	printf("Digite a conta: ");
-	scanf("%f %c %f", &a, &o, &b);
+	char oper;
 	
-	switch(o) {
-		case '+': printf("%.2f + %.2f = %.2f\n", a, b, a + b); break;
-		case '-': printf("%.2f - %.2f = %.2f\n", a, b, a - b); break;
-		case '*': printf("%.2f * %.2f = %.2f\n", a, b, a * b); break;
-		case '/': printf("%.2f / %.2f = %.2f\n", a, b, a / b); break;
-		default: printf("Valor invalido.\n");
+	printf("Digite a conta: ");
+	scanf("%f %c %f", &a, &oper, &b);
+	
+	switch(oper) {
+		case '+': printf("%.2f + %.2f = %.2f", a, b, a + b); break;
+		case '-': printf("%.2f - %.2f = %.2f", a, b, a - b); break;
+		case '*': printf("%.2f * %.2f = %.2f", a, b, a * b); break;
+		case '/':
+			if (b != 0) {
+				printf("%.2f / %.2f = %.2f", a, b, a / b); break;
+			} else {
+				printf("Divisao por zero nao permitida.");
+			}
+			break;		
+		default: printf("Operacao invalida");
 	}
 	
 	return 0;
